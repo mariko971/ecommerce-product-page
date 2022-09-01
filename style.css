@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/* font-family: 'Kumbh Sans', sans-serif; */
+
+:root {
+  --main-black-color: #1d2026;
+  --font-color-grey: #69707d;
+  --border-color-lightgrey: #979797;
+  --border-fill-lightgrey: #d5d9e1;
+  --font-color-orange: #ff7e1b;
+  --lightbg-color-orange: #ffeee2;
+  --font-color-lightgrey: #b6bcc8;
+  --btn-color-lightblue: #f6f8fd;
+}
+
+body {
+  background: #f2f2f2;
+  box-sizing: border-box;
+  height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.header {
+  margin: 18px 165px 0 165px;
+}
+
+#navigation {
+  position: relative;
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
+#navigation::after {
+  content: "";
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  height: 2px;
+  border-bottom: solid 2px;
+  border-color: var(--border-fill-lightgrey);
+}
+
+#logo {
+  width: 137.5px;
+  height: 20px;
+  color: var(--main-black-color);
+}
+
+#cartIcon {
+  height: 40%;
+  margin-left: auto;
+  color: var(--font-color-grey);
+}
+
+#avatar {
+  height: 100%;
+  margin-left: 45px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  width: 397px;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--font-color-grey);
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 90px auto 0 auto;
+  width: 1015px;
+  height: 565px;
+}
+
+.product-img {
+  background: url("./images/image-product-1.jpg") no-repeat center/cover;
+  width: 445px;
+  height: 445px;
+  border-radius: 15px;
+}
+
+.product-thumbnails {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 32px;
+}
+
+.thumbnail {
+  height: 88px;
+  width: 88px;
+  border-radius: 10px;
+}
+
+.t1 {
+  background: url("./images/image-product-1-thumbnail.jpg") no-repeat
+    center/cover;
+}
+.t2 {
+  background: url("./images/image-product-2-thumbnail.jpg") no-repeat
+    center/cover;
+}
+.t3 {
+  background: url("./images/image-product-3-thumbnail.jpg") no-repeat
+    center/cover;
+}
+.t4 {
+  background: url("./images/image-product-4-thumbnail.jpg") no-repeat
+    center/cover;
+}
+
+.product-info {
+  width: 445px;
+  height: 426px;
+  margin: auto 0;
+}
+
+.product-info h4 {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--font-color-orange);
+}
+
+.product-info h2 {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 48px;
+  color: var(--main-black-color);
+  margin-top: 27px;
+}
+
+.product-info p {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--font-color-grey);
+  margin-top: 32px;
+}
+
+#price {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 28px;
+}
+#discount {
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 10px;
+  padding: 5px 15px;
+  background: var(--lightbg-color-orange);
+  color: var(--font-color-orange);
+  border-radius: 6px;
+}
+
+#discounted-price {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+  color: var(--font-color-lightgrey);
+  text-decoration: line-through;
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 32px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#quantity {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--main-black-color);
+}
+
+.toggle-qty {
+  display: flex;
+  width: 157px;
+  height: 56px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--btn-color-lightblue);
+  border-color: var(--border-color-lightgrey);
+  border-radius: 10px;
+}
+
+#minus {
+  width: 12px;
+  height: 3.33px;
+}
+#plus {
+  width: 12px;
+  height: 12px;
+}
+
+#addToCart-btn {
+  display: flex;
+  width: 272px;
+  height: 56px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--font-color-orange);
+  border-color: var(--font-color-orange);
+  border-style: none;
+  border-radius: 10px;
+  padding: 0 60px;
+}
+
+#addToCart-btn p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffff;
+}
+#cartIcon-btn {
+  height: 33%;
+  border-color: #fff;
+}
