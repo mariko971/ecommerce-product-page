@@ -11,6 +11,7 @@
   --lightbg-color-orange: #ffeee2;
   --font-color-lightgrey: #b6bcc8;
   --btn-color-lightblue: #f6f8fd;
+  --btn-color-lightorange: #ffab6a;
 }
 
 body {
@@ -59,11 +60,25 @@ h4 {
   height: 40%;
   margin-left: auto;
   color: var(--font-color-grey);
+  cursor: pointer;
 }
 
 #avatar {
   height: 100%;
+  position: relative;
+}
+
+.avatar-outline {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   margin-left: 45px;
+  cursor: pointer;
+  border: solid 2px transparent;
+}
+
+.avatar-outline:hover {
+  border: solid 2px var(--font-color-orange);
 }
 
 .nav-links {
@@ -73,6 +88,30 @@ h4 {
   justify-content: space-between;
   font-size: 15px;
   color: var(--font-color-grey);
+}
+
+.link {
+  cursor: pointer;
+  position: relative;
+}
+
+.highlight {
+  position: absolute;
+  display: flex;
+  top: 53px;
+  height: 4px;
+  width: 100%;
+  background-color: var(--font-color-orange);
+  z-index: 1;
+  opacity: 0;
+}
+
+.link:hover {
+  color: var(--main-black-color);
+}
+
+.link:hover .highlight {
+  opacity: 1;
 }
 
 main {
@@ -102,6 +141,11 @@ main {
   height: 88px;
   width: 88px;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.thumbnail:hover {
+  opacity: 0.5;
 }
 
 .t1 {
@@ -207,6 +251,16 @@ footer {
   height: 12px;
 }
 
+#minus,
+#plus {
+  cursor: pointer;
+}
+
+#minus:hover,
+#plus:hover {
+  fill: var(--btn-color-lightorange);
+}
+
 #addToCart-btn {
   display: flex;
   width: 272px;
@@ -218,6 +272,11 @@ footer {
   border-style: none;
   border-radius: 10px;
   padding: 0 60px;
+  cursor: pointer;
+}
+
+#addToCart-btn:hover {
+  background-color: var(--btn-color-lightorange);
 }
 
 #addToCart-btn p {
