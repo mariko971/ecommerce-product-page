@@ -31,6 +31,7 @@ h4 {
 
 .header {
   margin: 18px 165px 0 165px;
+  position: relative;
 }
 
 #navigation {
@@ -63,6 +64,19 @@ h4 {
   cursor: pointer;
 }
 
+.cartQty {
+  width: 19px;
+  height: 13px;
+  background-color: var(--font-color-orange);
+  border-radius: 6.5px;
+  position: absolute;
+  right: 93px;
+  top: 9px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
 #avatar {
   height: 100%;
   position: relative;
@@ -123,7 +137,7 @@ main {
 }
 
 .product-img {
-  background: url("./images/image-product-1.jpg") no-repeat center/cover;
+  background: url("/public/images/image-product-1.jpg") no-repeat center/cover;
   width: 445px;
   height: 445px;
   border-radius: 15px;
@@ -149,19 +163,19 @@ main {
 }
 
 .t1 {
-  background: url("./images/image-product-1-thumbnail.jpg") no-repeat
+  background: url("/public/images/image-product-1-thumbnail.jpg") no-repeat
     center/cover;
 }
 .t2 {
-  background: url("./images/image-product-2-thumbnail.jpg") no-repeat
+  background: url("/public/images/image-product-2-thumbnail.jpg") no-repeat
     center/cover;
 }
 .t3 {
-  background: url("./images/image-product-3-thumbnail.jpg") no-repeat
+  background: url("/public/images/image-product-3-thumbnail.jpg") no-repeat
     center/cover;
 }
 .t4 {
-  background: url("./images/image-product-4-thumbnail.jpg") no-repeat
+  background: url("/public/images/image-product-4-thumbnail.jpg") no-repeat
     center/cover;
 }
 
