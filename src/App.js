@@ -1,9 +1,62 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
-import CartComponent from "./components/cart";
+import CartComponent from "./components/cart/cart";
+import { data } from "../DATA";
 import "./App.css";
+import Gallery from "./components/gallery/gallery";
+
+// COMPONENT WITH FEATURES FOR INCREASING AND DECREASING ITEM QUANTITY
+
+function ProductQty() {
+  const [prodQty, setProdQty] = useState(1);
+  return (
+    <div className="toggle-qty">
+      <img
+        src="../images/icon-minus.svg"
+        alt="minus"
+        id="minus"
+        onClick={() => (prodQty > 1 ? setProdQty(prodQty - 1) : setProdQty(1))}
+      />
+      <p id="quantity">{prodQty}</p>
+      <img
+        src="../images/icon-plus.svg"
+        alt="plus"
+        id="plus"
+        onClick={() => setProdQty(prodQty + 1)}
+      />
+    </div>
+  );
+}
+
+// MAIN APP COMPONENT
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const cartRef = useRef();
+  let cartNotDisplayed = true;
+
+  const toggleCart = () => {
+    cartNotDisplayed
+      ? ((cartRef.current.style.display = "block"), (cartNotDisplayed = false))
+      : ((cartRef.current.style.display = "none"), (cartNotDisplayed = true));
+  };
+
+  const addToCart = () => {
+    const { title, itemThumbnails, calcDiscount, discount, unitPrice } = data;
+    const qty = document.getElementById("quantity").innerHTML;
+    const price = calcDiscount(unitPrice, discount);
+    const product = {
+      productTitle: title,
+      productThumbnail: itemThumbnails[0],
+      productPrice: price,
+      productQty: parseInt(qty),
+      totalPrice: price * qty,
+    };
+    const newCart = [...cart, product];
+    setCart(newCart);
+    console.log(cart);
+  };
+
   return (
     <div className="App">
       <header className="header">
@@ -26,55 +79,65 @@ function App() {
               Contact <span className="highlight"></span>
             </li>
           </ul>
-          <img src="./images/icon-cart.svg" alt="cart icon" id="cartIcon" />
-          <span className="cartQty">3</span>
+          <img
+            src="./images/icon-cart.svg"
+            alt="cart icon"
+            id="cartIcon"
+            onClick={toggleCart}
+          />
           <span className="avatar-outline">
             <img src="./images/image-avatar.png" alt="avatar" id="avatar" />
           </span>
         </nav>
-        <CartComponent />
+        <CartComponent cartRef={cartRef} cart={cart} />
       </header>
       <main>
-        <section className="product-gallery">
-          <div className="product-img"></div>
-          <ul className="product-thumbnails">
-            <li className="thumbnail t1"></li>
-            <li className="thumbnail t2"></li>
-            <li className="thumbnail t3"></li>
-            <li className="thumbnail t4"></li>
-          </ul>
-        </section>
+        <Gallery
+          itemImages={data.itemImages}
+          itemThumbnails={data.itemThumbnails}
+          isModal={false}
+        />
+        {/* -------LIGHTBOX FEATURE------- */}
+
+        <article className="modal">
+          <img
+            src="../images/icon-close.svg"
+            alt="close"
+            className="modal-close-btn"
+            onClick={() =>
+              (document.querySelector(".modal").style.transform = "scale(0)")
+            }
+          />
+          <Gallery
+            itemImages={data.itemImages}
+            itemThumbnails={data.itemThumbnails}
+            isModal={true}
+          />
+        </article>
         <section className="product-info">
-          <h4>SNEAKER COMPANY</h4>
-          <h2>Fall Limited Edition Sneakers</h2>
-          <p>
-            These low profile sneakers are your perfect casual wear companion.
-            Featuring a durable rubber outer sole, they’ll withstand everything
-            the weather has to offer.
-          </p>
+          <h4>{data.company.toUpperCase()}</h4>
+          <h2>{data.title}</h2>
+          <p>{data.itemDesctiption}</p>
           <h3 id="price">
-            $125.00 <span id="discount">50%</span>
+            ${data.calcDiscount(data.unitPrice, data.discount).toFixed(2)}{" "}
+            <span id="discount">{`${data.discount}%`}</span>
           </h3>
 
-          <p id="discounted-price">$250.00</p>
+          <p id="discounted-price">${data.unitPrice.toFixed(2)}</p>
           <footer>
-            <div className="toggle-qty">
-              <img src="../images/icon-minus.svg" alt="minus" id="minus" />
-              <p id="quantity">0</p>
-              <img src="../images/icon-plus.svg" alt="plus" id="plus" />
-            </div>
-            <button id="addToCart-btn" className="btn">
+            <ProductQty />
+            <button id="addToCart-btn" className="btn" onClick={addToCart}>
               <img
                 src="../images/icon-cart-white.svg"
                 alt="cart"
                 id="cartIcon-btn"
+                onClick={addToCart}
               />
               <p>Add to cart</p>
             </button>
           </footer>
         </section>
       </main>
-      {/* <h1>its working</h1> */}
     </div>
   );
 }
