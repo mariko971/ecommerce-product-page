@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 
 import CartComponent from "./components/cart/cart";
 import { data } from "../DATA";
+import { addToCart } from "./utils";
 import "./App.css";
 import Gallery from "./components/gallery/gallery";
 
@@ -35,30 +36,20 @@ function App() {
   const cartRef = useRef();
   let cartNotDisplayed = true;
 
+  let cartQuantity = cart.length
+    ? cart.map((item) => item.productQty).reduce((prev, cur) => prev + cur, 0)
+    : 0;
+
   const toggleCart = () => {
     cartNotDisplayed
       ? ((cartRef.current.style.display = "block"), (cartNotDisplayed = false))
       : ((cartRef.current.style.display = "none"), (cartNotDisplayed = true));
   };
 
-  const addToCart = () => {
-    const { title, itemThumbnails, calcDiscount, discount, unitPrice } = data;
-    const qty = document.getElementById("quantity").innerHTML;
-    const price = calcDiscount(unitPrice, discount);
-    const product = {
-      productTitle: title,
-      productThumbnail: itemThumbnails[0],
-      productPrice: price,
-      productQty: parseInt(qty),
-      totalPrice: price * qty,
-    };
-    const newCart = [...cart, product];
-    setCart(newCart);
-    console.log(cart);
-  };
-
   return (
     <div className="App">
+      {/* ----Navigation bar---- */}
+
       <header className="header">
         <nav id="navigation">
           <img src="./images/logo.svg" alt="logo" id="logo" />
@@ -85,12 +76,21 @@ function App() {
             id="cartIcon"
             onClick={toggleCart}
           />
+          {/* -----feature to display number of items in cart---- */}
+
+          {cart.length ? (
+            <span className="cart-count">{cartQuantity}</span>
+          ) : null}
+
           <span className="avatar-outline">
             <img src="./images/image-avatar.png" alt="avatar" id="avatar" />
           </span>
         </nav>
-        <CartComponent cartRef={cartRef} cart={cart} />
+        <CartComponent cartRef={cartRef} cart={cart} setCart={setCart} />
       </header>
+
+      {/* ----Main component rendering product information and images */}
+
       <main>
         <Gallery
           itemImages={data.itemImages}
@@ -114,6 +114,9 @@ function App() {
             isModal={true}
           />
         </article>
+
+        {/* ----product details---- */}
+
         <section className="product-info">
           <h4>{data.company.toUpperCase()}</h4>
           <h2>{data.title}</h2>
@@ -122,16 +125,21 @@ function App() {
             ${data.calcDiscount(data.unitPrice, data.discount).toFixed(2)}{" "}
             <span id="discount">{`${data.discount}%`}</span>
           </h3>
-
           <p id="discounted-price">${data.unitPrice.toFixed(2)}</p>
+
+          {/* ----add to cart button and quantity selection features */}
+
           <footer>
             <ProductQty />
-            <button id="addToCart-btn" className="btn" onClick={addToCart}>
+            <button
+              id="addToCart-btn"
+              className="btn"
+              onClick={() => addToCart(data, setCart, cart)}
+            >
               <img
                 src="../images/icon-cart-white.svg"
                 alt="cart"
                 id="cartIcon-btn"
-                onClick={addToCart}
               />
               <p>Add to cart</p>
             </button>

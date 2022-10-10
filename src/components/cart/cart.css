@@ -108,18 +108,3 @@
   margin: 26px 0;
   cursor: pointer;
 }
-
-.cartQty {
-  width: 19px;
-  height: 13px;
-  background-color: var(--font-color-orange);
-  border-radius: 6.5px;
-  position: absolute;
-  right: 93px;
-  top: 9px;
-  font-size: 10px;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  display: none;
-}
