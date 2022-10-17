@@ -29,6 +29,10 @@ h4 {
   margin: 0;
 }
 
+.App {
+  max-width: 1440px;
+  min-width: 320px;
+}
 .header {
   margin: 18px 165px 0 165px;
   position: relative;
@@ -276,6 +280,12 @@ footer {
   transform: scale(0);
 }
 
+.modal-gallery-container {
+  position: relative;
+  max-width: 550px;
+  height: 722px;
+}
+
 .modal .product-img {
   width: 550px;
   height: 550px;
@@ -292,46 +302,33 @@ footer {
   padding: 19px 22px;
   border-radius: 50%;
   background-color: #fff;
-  top: 370px;
+  top: 269px;
   cursor: pointer;
+}
+
+.modal-btn:hover path {
+  stroke: var(--font-color-orange);
 }
 
 .prev-btn {
-  left: 417px;
+  left: -23.5px;
 }
 
 .next-btn {
-  right: 417px;
+  right: -23.5px;
 }
 
 .modal-close-btn {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 70px;
-  right: 450px;
+  display: flex;
+  margin-left: auto;
+  margin-bottom: 24px;
   cursor: pointer;
 }
 
-/* Add Animation */
-.modal {
-  transition: ease-in 0.2s;
+.modal-close-btn:hover path {
+  fill: var(--font-color-orange);
 }
 
-/* @-webkit-keyframes zoom {
-  from {
-    -webkit-transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-  }
-} */
-
-@keyframes zoom {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
+.modal {
+  transition: ease-in 0.2s;
 }
