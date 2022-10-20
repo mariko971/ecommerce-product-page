@@ -32,9 +32,11 @@ h4 {
 .App {
   max-width: 1440px;
   min-width: 320px;
+  margin-inline: auto;
 }
 .header {
-  margin: 18px 165px 0 165px;
+  max-width: 1110px;
+  margin: 18px auto 0 auto;
   position: relative;
 }
 
@@ -62,10 +64,14 @@ h4 {
 }
 
 #cartIcon {
-  height: 40%;
+  /* height: 40%; */
   margin-left: auto;
-  color: var(--font-color-grey);
+  /* color: var(--font-color-grey); */
   cursor: pointer;
+}
+
+#cartIcon:hover path {
+  fill: var(--main-black-color);
 }
 
 .cart-count {
