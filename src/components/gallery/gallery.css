@@ -64,3 +64,29 @@
     justify-content: space-around;
   }
 }
+
+@media (max-width: 600px) {
+  .product-gallery {
+    width: 100%;
+  }
+
+  .product-thumbnails {
+    display: none;
+  }
+
+  .product-img {
+    border-radius: 0;
+    height: 500px;
+  }
+}
+
+@media (max-width: 376px) {
+  .product-img {
+    height: 300px;
+  }
+  .product-gallery {
+    min-width: 0;
+    width: 100vw;
+    height: 300px;
+  }
+}

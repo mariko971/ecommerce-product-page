@@ -2,11 +2,26 @@ import React, { useState } from "react";
 
 import "./gallery.css";
 import { toggleLightBox } from "../../utils";
+import {
+  GalleryNextBtn,
+  GalleryPrevBtn,
+} from "../gallery-buttons/gallery_nav_btns";
 
 const Gallery = ({ itemImages, itemThumbnails, isModal }) => {
   const [current, setCurrent] = useState(0);
+
   return (
     <section className="product-gallery">
+      <GalleryPrevBtn
+        itemImages={itemImages}
+        current={current}
+        setCurrent={setCurrent}
+      />
+      <GalleryNextBtn
+        itemImages={itemImages}
+        current={current}
+        setCurrent={setCurrent}
+      />
       <div
         className="product-img"
         style={{
