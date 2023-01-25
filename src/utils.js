@@ -6,9 +6,16 @@ export const toggleCart = () => {
   });
 };
 
-export const toggleLightBox = () => {
+export const toggleLightBox = (toggle) => {
   const modal = document.querySelector(".modal");
-  modal.style.transform = "scale(1)";
+  const bodyEl = document.getElementsByTagName("body");
+  if (toggle) {
+    modal.style.transform = "scale(1)";
+    bodyEl.style.position = "fixed";
+  } else {
+    modal.style.transform = "scale(0)";
+    bodyEl.style.position = "initial";
+  }
 };
 
 export const addToCart = (data, setCart, cart) => {
@@ -24,4 +31,17 @@ export const addToCart = (data, setCart, cart) => {
   };
   const newCart = [...cart, product];
   setCart(newCart);
+};
+
+export const toggleMobMenu = (toggle) => {
+  const menuWrapper = document.querySelector(".nav-links-wrapper");
+  const bodyEl = document.getElementsByTagName("body");
+
+  if (toggle) {
+    menuWrapper.style.left = "0";
+    bodyEl.style.position = "fixed";
+  } else {
+    menuWrapper.style.left = "-100%";
+    bodyEl.style.position = "initial";
+  }
 };

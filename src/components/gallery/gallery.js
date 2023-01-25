@@ -12,7 +12,7 @@ const Gallery = ({ itemImages, itemThumbnails, isModal }) => {
         style={{
           background: `url(./images/${itemImages[current]}) no-repeat center/cover`,
         }}
-        onClick={toggleLightBox}
+        onClick={() => toggleLightBox(true)}
       >
         {isModal ? (
           <>

@@ -108,3 +108,17 @@
   margin: 26px 0;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .cartComponent {
+    right: 20px;
+    width: 460px;
+  }
+  .cartItem {
+    width: 90%;
+    justify-content: space-between;
+  }
+  .cartItems-list {
+    width: 95%;
+  }
+}

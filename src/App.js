@@ -2,7 +2,12 @@ import React, { useRef, useState } from "react";
 
 import CartComponent from "./components/cart/cart";
 import { data } from "../DATA";
-import { addToCart } from "./utils";
+import {
+  addToCart,
+  toggleMobMenu,
+  closeMobMenu,
+  toggleLightBox,
+} from "./utils";
 import "./App.css";
 import Gallery from "./components/gallery/gallery";
 
@@ -52,24 +57,39 @@ function App() {
 
       <header className="header">
         <nav id="navigation">
+          <img
+            src="./images/icon-menu.svg"
+            alt="menu"
+            id="menu-mobile"
+            onClick={() => toggleMobMenu(true)}
+          />
           <img src="./images/logo.svg" alt="logo" id="logo" />
-          <ul className="nav-links">
-            <li className="link">
-              Collections <span className="highlight"></span>
-            </li>
-            <li className="link">
-              Men <span className="highlight"></span>
-            </li>
-            <li className="link">
-              Women <span className="highlight"></span>
-            </li>
-            <li className="link">
-              About <span className="highlight"></span>
-            </li>
-            <li className="link">
-              Contact <span className="highlight"></span>
-            </li>
-          </ul>
+          <div className="nav-links-wrapper">
+            <ul className="nav-links nav-links-sm">
+              <img
+                src="./images/icon-close.svg"
+                alt="close"
+                id="close-menu"
+                onClick={() => toggleMobMenu()}
+              />
+              <li className="link">
+                Collections <span className="highlight"></span>
+              </li>
+              <li className="link">
+                Men <span className="highlight"></span>
+              </li>
+              <li className="link">
+                Women <span className="highlight"></span>
+              </li>
+              <li className="link">
+                About <span className="highlight"></span>
+              </li>
+              <li className="link">
+                Contact <span className="highlight"></span>
+              </li>
+            </ul>
+          </div>
+
           <svg
             width="22"
             height="20"
@@ -83,14 +103,6 @@ function App() {
               fill-rule="nonzero"
             />
           </svg>
-          {/* <img
-            src="./images/icon-cart.svg"
-            alt="cart icon"
-            id="cartIcon"
-            onClick={toggleCart}
-          /> */}
-          {/* -----feature to display number of items in cart---- */}
-
           {cart.length ? (
             <span className="cart-count">{cartQuantity}</span>
           ) : null}
@@ -120,9 +132,7 @@ function App() {
               width="14"
               height="15"
               xmlns="http://www.w3.org/2000/svg"
-              onClick={() =>
-                (document.querySelector(".modal").style.transform = "scale(0)")
-              }
+              onClick={() => toggleLightBox()}
             >
               <path
                 d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
@@ -145,11 +155,13 @@ function App() {
           <h4>{data.company.toUpperCase()}</h4>
           <h2>{data.title}</h2>
           <p>{data.itemDesctiption}</p>
-          <h3 id="price">
-            ${data.calcDiscount(data.unitPrice, data.discount).toFixed(2)}{" "}
-            <span id="discount">{`${data.discount}%`}</span>
-          </h3>
-          <p id="discounted-price">${data.unitPrice.toFixed(2)}</p>
+          <div className="price-wrapper">
+            <h3 id="price">
+              ${data.calcDiscount(data.unitPrice, data.discount).toFixed(2)}{" "}
+              <span id="discount">{`${data.discount}%`}</span>
+            </h3>
+            <p id="discounted-price">${data.unitPrice.toFixed(2)}</p>
+          </div>
 
           {/* ----add to cart button and quantity selection features */}
 

@@ -1,5 +1,9 @@
+.product-gallery {
+  min-width: 400px;
+  width: 43.9%;
+}
+
 .product-img {
-  width: 445px;
   height: 445px;
   border-radius: 15px;
 }
@@ -48,4 +52,15 @@
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.5)
   );
+}
+
+@media (max-width: 768px) {
+  .product-gallery {
+    width: 80%;
+  }
+
+  .product-thumbnails {
+    margin-top: 20px;
+    justify-content: space-around;
+  }
 }
