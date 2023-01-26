@@ -1,13 +1,8 @@
 import React, { useRef, useState } from "react";
 
 import CartComponent from "./components/cart/cart";
-import { data } from "../DATA";
-import {
-  addToCart,
-  toggleMobMenu,
-  closeMobMenu,
-  toggleLightBox,
-} from "./utils";
+import { data } from "./DATA";
+import { addToCart, toggleMobMenu, toggleLightBox } from "./utils";
 import "./App.css";
 import Gallery from "./components/gallery/gallery";
 
@@ -18,14 +13,14 @@ function ProductQty() {
   return (
     <div className="toggle-qty">
       <img
-        src="../images/icon-minus.svg"
+        src="./images/icon-minus.svg"
         alt="minus"
         id="minus"
         onClick={() => (prodQty > 1 ? setProdQty(prodQty - 1) : setProdQty(1))}
       />
       <p id="quantity">{prodQty}</p>
       <img
-        src="../images/icon-plus.svg"
+        src="./images/icon-plus.svg"
         alt="plus"
         id="plus"
         onClick={() => setProdQty(prodQty + 1)}
@@ -173,7 +168,7 @@ function App() {
               onClick={() => addToCart(data, setCart, cart)}
             >
               <img
-                src="../images/icon-cart-white.svg"
+                src="./images/icon-cart-white.svg"
                 alt="cart"
                 id="cartIcon-btn"
               />
