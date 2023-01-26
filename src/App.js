@@ -165,22 +165,22 @@ function App() {
           </div>
 
           {/* ----add to cart button and quantity selection features */}
+          <footer>
+            <ProductQty />
+            <button
+              id="addToCart-btn"
+              className="btn"
+              onClick={() => addToCart(data, setCart, cart)}
+            >
+              <img
+                src="../images/icon-cart-white.svg"
+                alt="cart"
+                id="cartIcon-btn"
+              />
+              <p>Add to cart</p>
+            </button>
+          </footer>
         </section>
-        <footer>
-          <ProductQty />
-          <button
-            id="addToCart-btn"
-            className="btn"
-            onClick={() => addToCart(data, setCart, cart)}
-          >
-            <img
-              src="../images/icon-cart-white.svg"
-              alt="cart"
-              id="cartIcon-btn"
-            />
-            <p>Add to cart</p>
-          </button>
-        </footer>
       </main>
     </div>
   );
