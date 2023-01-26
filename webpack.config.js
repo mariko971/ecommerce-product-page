@@ -4,14 +4,15 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname, "/public"),
     filename: "bundle.js",
+    assetModuleFilename: "images/[hash][ext][query]",
   },
   plugins: [new htmlWebpackPlugin({ template: "./public/index.html" })],
   module: {
     rules: [
       {
-        test: /.js$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -23,6 +24,11 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg)$/,
+
+        type: "asset/resource",
       },
     ],
   },
