@@ -1,13 +1,8 @@
 import React, { useRef, useState } from "react";
 
 import CartComponent from "./components/cart/cart";
-import { data } from "../DATA";
-import {
-  addToCart,
-  toggleMobMenu,
-  closeMobMenu,
-  toggleLightBox,
-} from "./utils";
+import { data } from "./DATA";
+import { addToCart, toggleMobMenu, toggleLightBox } from "./utils";
 import "./App.css";
 import Gallery from "./components/gallery/gallery";
 
