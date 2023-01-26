@@ -10,11 +10,7 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -31,8 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![./screenshots/desktop.png]()
-![./screenshots/mobile.png]()
+![/screenshots/desktop.png]()
 
 ### Links
 
@@ -51,4 +46,4 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@ymariko971](https://www.frontendmentor.io/profile/mariko971)
+- Frontend Mentor - [@mariko971](https://www.frontendmentor.io/profile/mariko971)
