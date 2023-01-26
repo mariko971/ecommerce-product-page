@@ -1,14 +1,14 @@
 import React from "react";
 import "./gallery_nav_btns.css";
 
-export const GalleryPrevBtn = ({ itemImages, current, setCurrent }) => {
+export const GalleryPrevBtn = ({ itemImages, current, setCurrent, cName }) => {
   return (
     <>
       <svg
         width="12"
         height="18"
         xmlns="http://www.w3.org/2000/svg"
-        className="modal-btn gallery-prev-btn"
+        className={`modal-btn ${cName}`}
         onClick={() =>
           setCurrent(current === 0 ? itemImages.length - 1 : current - 1)
         }
@@ -25,14 +25,14 @@ export const GalleryPrevBtn = ({ itemImages, current, setCurrent }) => {
   );
 };
 
-export const GalleryNextBtn = ({ itemImages, current, setCurrent }) => {
+export const GalleryNextBtn = ({ itemImages, current, setCurrent, cName }) => {
   return (
     <>
       <svg
         width="13"
         height="18"
         xmlns="http://www.w3.org/2000/svg"
-        className="modal-btn gallery-next-btn"
+        className={`modal-btn ${cName}`}
         onClick={() =>
           setCurrent(current === itemImages.length - 1 ? 0 : current + 1)
         }

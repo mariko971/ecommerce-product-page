@@ -7,14 +7,16 @@ export const toggleCart = () => {
 };
 
 export const toggleLightBox = (toggle) => {
-  const modal = document.querySelector(".modal");
-  const bodyEl = document.getElementsByTagName("body");
-  if (toggle) {
-    modal.style.transform = "scale(1)";
-    bodyEl.style.position = "fixed";
-  } else {
-    modal.style.transform = "scale(0)";
-    bodyEl.style.position = "initial";
+  if (window.innerWidth > 768) {
+    const modal = document.querySelector(".modal");
+    const bodyEl = document.getElementsByTagName("body");
+    if (toggle) {
+      modal.style.transform = "scale(1)";
+      bodyEl.style.position = "fixed";
+    } else {
+      modal.style.transform = "scale(0)";
+      bodyEl.style.position = "initial";
+    }
   }
 };
 
@@ -36,6 +38,7 @@ export const addToCart = (data, setCart, cart) => {
 export const toggleMobMenu = (toggle) => {
   const menuWrapper = document.querySelector(".nav-links-wrapper");
   const bodyEl = document.getElementsByTagName("body");
+  console.log(bodyEl);
 
   if (toggle) {
     menuWrapper.style.left = "0";

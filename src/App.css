@@ -120,6 +120,10 @@ h4 {
   color: var(--font-color-grey);
 }
 
+#close-menu {
+  display: none;
+}
+
 .link {
   cursor: pointer;
   position: relative;
@@ -155,7 +159,7 @@ main {
 .product-info {
   width: 43.9%;
   height: 426px;
-  margin: auto 0;
+  margin-top: 62px;
 }
 
 .product-info h4 {
@@ -308,16 +312,6 @@ footer {
   padding-inline: 52.5px;
 }
 
-.modal-btn {
-  font-size: 16px;
-  position: absolute;
-  padding: 19px 22px;
-  border-radius: 50%;
-  background-color: #fff;
-  top: 269px;
-  cursor: pointer;
-}
-
 .modal-btn:hover path {
   stroke: var(--font-color-orange);
 }
@@ -355,10 +349,6 @@ footer {
     flex-direction: column;
   }
 
-  /* .cart-count {
-    right: 113px;
-  } */
-
   .nav-links {
     display: none;
   }
@@ -388,6 +378,7 @@ footer {
   }
 
   #close-menu {
+    display: flex;
     height: 15px;
     width: 14px;
     margin-bottom: 53px;
@@ -438,7 +429,7 @@ footer {
   .price-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
   }
 
   .toggle-qty {
@@ -451,6 +442,9 @@ footer {
 
   .modal {
     display: none;
+  }
+  footer {
+    padding-bottom: 4rem;
   }
 }
 
@@ -479,7 +473,6 @@ footer {
     justify-content: space-between;
     align-items: center;
     height: 128px;
-    padding-bottom: 5rem;
   }
 
   #addToCart-btn {
