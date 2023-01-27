@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import CartComponent from "./components/cart/cart";
 import { data } from "./DATA";
@@ -8,24 +8,48 @@ import Gallery from "./components/gallery/gallery";
 
 // COMPONENT WITH FEATURES FOR INCREASING AND DECREASING ITEM QUANTITY
 
-function ProductQty() {
+function ProductQty({ cart, setCart }) {
   const [prodQty, setProdQty] = useState(1);
+  useEffect(() => {
+    if (prodQty === 0) {
+      document.querySelector(".toggle-qty").style.boxShadow = "0px 0px 5px red";
+    } else {
+      document.querySelector(".toggle-qty").style.boxShadow = "";
+    }
+  }, [prodQty]);
   return (
-    <div className="toggle-qty">
-      <img
-        src="./images/icon-minus.svg"
-        alt="minus"
-        id="minus"
-        onClick={() => (prodQty > 1 ? setProdQty(prodQty - 1) : setProdQty(1))}
-      />
-      <p id="quantity">{prodQty}</p>
-      <img
-        src="./images/icon-plus.svg"
-        alt="plus"
-        id="plus"
-        onClick={() => setProdQty(prodQty + 1)}
-      />
-    </div>
+    <>
+      <div className="toggle-qty">
+        <img
+          src="./images/icon-minus.svg"
+          alt="minus"
+          id="minus"
+          onClick={() =>
+            prodQty > 1 ? setProdQty(prodQty - 1) : setProdQty(1)
+          }
+        />
+        <p id="quantity">{prodQty}</p>
+        <img
+          src="./images/icon-plus.svg"
+          alt="plus"
+          id="plus"
+          onClick={() => setProdQty(prodQty + 1)}
+        />
+      </div>
+      <button
+        id="addToCart-btn"
+        className="btn"
+        onClick={() => {
+          if (prodQty > 0) {
+            addToCart(data, setCart, cart);
+            setProdQty(0);
+          }
+        }}
+      >
+        <img src="./images/icon-cart-white.svg" alt="cart" id="cartIcon-btn" />
+        <p>Add to cart</p>
+      </button>
+    </>
   );
 }
 
@@ -161,11 +185,14 @@ function App() {
 
           {/* ----add to cart button and quantity selection features */}
           <footer>
-            <ProductQty />
-            <button
+            <ProductQty cart={cart} setCart={setCart} />
+            {/* <button
               id="addToCart-btn"
               className="btn"
-              onClick={() => addToCart(data, setCart, cart)}
+              onClick={() => {
+                addToCart(data, setCart, cart);
+                setProdQty;
+              }}
             >
               <img
                 src="./images/icon-cart-white.svg"
@@ -173,7 +200,7 @@ function App() {
                 id="cartIcon-btn"
               />
               <p>Add to cart</p>
-            </button>
+            </button> */}
           </footer>
         </section>
       </main>
