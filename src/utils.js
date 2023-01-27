@@ -9,13 +9,13 @@ export const toggleCart = () => {
 export const toggleLightBox = (toggle) => {
   if (window.innerWidth > 768) {
     const modal = document.querySelector(".modal");
-    const bodyEl = document.getElementsByTagName("body");
+    const app = document.querySelector(".App");
     if (toggle) {
       modal.style.transform = "scale(1)";
-      bodyEl.style.position = "fixed";
+      modal.style.position = "fixed";
     } else {
       modal.style.transform = "scale(0)";
-      bodyEl.style.position = "initial";
+      modal.style.position = "absolute";
     }
   }
 };
@@ -37,14 +37,13 @@ export const addToCart = (data, setCart, cart) => {
 
 export const toggleMobMenu = (toggle) => {
   const menuWrapper = document.querySelector(".nav-links-wrapper");
-  const bodyEl = document.getElementsByTagName("body");
-  console.log(bodyEl);
+  const app = document.querySelector(".App");
 
   if (toggle) {
     menuWrapper.style.left = "0";
-    bodyEl.style.position = "fixed";
+    app.style.position = "fixed";
   } else {
-    menuWrapper.style.left = "-100%";
-    bodyEl.style.position = "initial";
+    menuWrapper.style.left = "-200%";
+    app.style.position = "initial";
   }
 };
