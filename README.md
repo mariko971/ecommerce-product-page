@@ -27,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![/screenshots/desktop.png]()
+![Screenshot]('/screenshots/desktop.png')
 
 ### Links
 
-- Solution URL: [https://github.com/mariko971/ecommerce-product-page]()
-- Live Site URL: [https://mariko-ecommerce-page.netlify.app/]()
+- Solution URL: [https://github.com/mariko971/ecommerce-product-page](https://github.com/mariko971/ecommerce-product-page)
+- Live Site URL: [https://mariko-ecommerce-page.netlify.app/](https://mariko-ecommerce-page.netlify.app/)
 
 ## My process
 
